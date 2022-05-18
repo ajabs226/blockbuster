@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MovieApp {
+
+	public static void main(String[] args) {
+		ArrayList<String> movies = new ArrayList<>();
+		movies.add(0, "1) Dumb and Dumber");
+		movies.add(1, "2) Bettlejuice");
+		movies.add(2, "3) Tarzan");
+		movies.add(3, "4) Avatar");
+		movies.add(4, "5) Mighty Ducks");
+		Scanner scan = new Scanner(System.in);
+		
+
+		System.out.println("Pick a movie:");
+		printArrayListMovies(movies);
+		String input = scan.nextLine();
+		playMovieByIndex(movies);
+
+	}
+
+	public static void printArrayListMovies(ArrayList movies) {
+		for (int i = 0; i < movies.size(); i++) {
+			System.out.println(movies.get(i));
+		}
+	}
+	
+	public static ArrayList playMovieByIndex(ArrayList movies) {
+		for(int i = 0; i < movies.indexOf(movies); i++) {
+			System.out.println(movies);
+		}
+		return movies;
+
+	}
+
+}

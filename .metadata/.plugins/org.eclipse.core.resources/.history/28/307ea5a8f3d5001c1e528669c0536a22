@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+
+public abstract class Movie {
+
+	//fields
+	private String title;
+	private int runTime;
+	ArrayList<String> scenes = new ArrayList<>();
+	
+	//getters & setters
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public int getRunTime() {
+		return runTime;
+	}
+	
+	public void setRunTime(int runTime) {
+		this.runTime = runTime;
+	}
+	
+	//constructors
+	//default
+	public Movie() {
+		
+	}
+	
+	@Override
+	public String toString() {
+		return "Title: " + title + "\nRunTime: " + runTime
+	}
+
+public static String printInto(String title, int runTime) {
+	return title + runTime;
+}
+
+public static ArrayList<String> printScenes(ArrayList<String> scenes) {
+	return scenes;
+}
+
+public static void play() {
+	
+}
+
+}

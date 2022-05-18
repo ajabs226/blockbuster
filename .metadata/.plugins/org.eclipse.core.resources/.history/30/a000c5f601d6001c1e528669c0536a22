@@ -1,0 +1,10 @@
+
+public class VHS extends Movie {
+
+	private int currentTime = 0;
+	
+	@Override
+	public String 
+	
+	
+}

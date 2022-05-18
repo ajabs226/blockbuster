@@ -1,0 +1,101 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MovieApp {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		Boolean cont = true;
+
+		ArrayList<Movie> movies = new ArrayList<>();
+		movies.add(new VHS("Dumb and Dumber", 123));
+		movies.add(new VHS("Beetlejuice", 234));
+		movies.add(new VHS("Tarzan", 492));
+		movies.add(new DVD("Avatar", 56));
+		movies.add(new DVD("Mighty Ducks", 324));
+		movies.add(new DVD("Space Jam", 150));
+
+		ArrayList<String> scenes = new ArrayList<>();
+		scenes.add("Driving Mary to the Airport");
+		scenes.add("That one dance scene");
+		scenes.add("WHen Tarzan met Jane");
+		scenes.add("The war scene");
+		scenes.add("When that one guy scored that one goal");
+		scenes.add("When that one tall basketball guy scored a basket");
+		movies.get(0).setScenes(scenes);
+		
+		ArrayList<String> scenes2 = new ArrayList<>();
+		scenes2.add("Riding crosscountry");
+		scenes2.add("Bungee Jumping");
+		scenes2.add("Swinging through the vines");
+		scenes2.add("Talking to the tree");
+		scenes2.add("Ice Skating");
+		scenes2.add("Playing basketball");
+		
+		ArrayList<String> scenes3 = new ArrayList<>();
+		scenes3.add("Picking up hitchhikers");
+		scenes3.add("Scaring everyone");
+		scenes3.add("Running around with the animals");
+		scenes3.add("Hunting");
+		scenes3.add("Hanging out");
+		scenes3.add("Practicing");
+		
+		ArrayList<String> scenes4 = new ArrayList<>();
+		scenes4.add("Running at an incredible speed");
+		scenes4.add("I am running out of ideas");
+		scenes4.add("When Tarzan fell in love with Jane");
+		scenes4.add("Riding on those lizard-dinoasaur things");
+		scenes4.add("Hockey Fight");
+		scenes4.add("Penalty Shot");
+		
+		ArrayList<String> scenes5 = new ArrayList<>();
+		scenes5.add("Returning Mary's suitcase");
+		scenes5.add("Haunting the family");
+		scenes5.add("Tarzan crashes into a tree");
+		scenes5.add("Fighitng the bad guys");
+		scenes5.add("Having ice cream");
+		scenes5.add("Beating the aliens");
+
+		ArrayList<String> scenes6 = new ArrayList<>();
+		scenes6.add("Making the most annoying sound in the world");
+		scenes6.add("Saying his name three times");
+		scenes6.add("Making fire");
+		scenes6.add("Harvesting");
+		scenes6.add("Winning the game");
+		scenes6.add("Napping");
+		
+		System.out.println("Pick a movie:");
+		for (Movie movie : movies) {
+			System.out.println((movies.indexOf(movie) + 1) + ". " + movie.getTitle());
+		}
+
+		int input = scan.nextInt();
+		movies.get(input - 1).printInfo();
+	
+		System.out.println("Do you want to watch the movie? (y/n):");
+		String watchMovie = scan.nextLine();
+		
+		while (cont) {
+			if (watchMovie.equalsIgnoreCase("y")) {
+				movies.get(input - 1).play();
+				
+				System.out.println("Watch another scene?");
+				watchMovie = scan.next();
+				
+			} else if (watchMovie.equalsIgnoreCase("n")) {
+				cont = false;
+				
+			} else {
+				System.out.println("That is not an option, try again.");
+				watchMovie = scan.nextLine();
+				
+			}
+		}
+
+		System.out.println("Goodbye!");
+		scan.close();
+
+	}
+
+}
