@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
-public abstract class Movie {
+public class Movie {
 
 	// fields
 	private String title;
 	private int runTime;
 	private ArrayList<String> scenes;
+	private Play play;
 
 	// getters & setters
 	public String getTitle() {
@@ -31,12 +32,6 @@ public abstract class Movie {
 	public void setScenes(ArrayList<String> scenes) {
 		this.scenes = scenes;
 	}
-	
-	//Constructors 
-	/*
-	 * public Movie(String title, int runTime) { setTitle(title);
-	 * setRunTime(runTime); }
-	 */
 
 	public void printInfo() {
 		System.out.println(title);
@@ -48,7 +43,22 @@ public abstract class Movie {
 			System.out.println("Scene " + scenes.indexOf(scene) + ": " + scene);
 		}
 	}
+	
+	//default constructor
+	public Movie() {
 
-	public abstract void play();
+	}
+
+	//overloaded constructor
+	public Movie(String title, int runTime, ArrayList<String> scenes, Play play) {
+		this.title = title;
+		this.runTime = runTime;
+		this.scenes = scenes;
+		this.play = play;
+	}
+	
+	public void play() {
+		play.play(scenes);
+	}
 
 }

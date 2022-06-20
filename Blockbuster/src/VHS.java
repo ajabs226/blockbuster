@@ -1,29 +1,29 @@
 import java.util.ArrayList;
 
-public class VHS extends Movie{
+public class VHS implements Play {
 	private int currentTime;
-	
-	public VHS(String title, int runTime) {
-		super.setTitle(title);
-		super.setRunTime(runTime);
+
+	public VHS() {
+
 	}
-	
+
 	public int getCurrentTime() {
 		return currentTime;
 	}
-	
+
 	@Override
-	public void play() {
-		ArrayList<String> getScenes = super.getScenes();
-		System.out.println("Scene " + currentTime + ": " + getScenes.get(currentTime));
-		currentTime++;
-		
-		if (currentTime > getScenes().size()) {
-			rewind();
+	public void play(ArrayList<String> scenes) {
+		for (String scene : scenes) {
+			System.out.println("Scene " + scenes.indexOf(scene) + ": " + scene);
+
+			if (currentTime > scenes.size()) {
+				rewind();
+			}
 		}
 	}
-	
+
 	public void rewind() {
 		currentTime = 0;
 	}
+
 }
